@@ -1,0 +1,23 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+
+PACKAGE MemLogica_package IS
+COMPONENT MemLogica
+GENERIC (
+		WORDSIZE		: NATURAL	:= 8;
+		BITS_OF_ADDR	: NATURAL	:= 8;			-- 8 bits, labirinto tem 18x13, totalizando 1110 1010
+		MIF_FILE		: STRING	:= "stage.mif"	
+	);
+	PORT (
+		clock   		: IN	STD_LOGIC;
+		we      		: IN	STD_LOGIC;
+		address 		: IN	STD_LOGIC_VECTOR(BITS_OF_ADDR-1 DOWNTO 0);
+		datain  		: IN	STD_LOGIC_VECTOR(WORDSIZE-1 DOWNTO 0);
+		dataout 		: OUT	STD_LOGIC_VECTOR(WORDSIZE-1 DOWNTO 0);
+		--address2		: IN	STD_LOGIC_VECTOR(BITS_OF_ADDR-1 DOWNTO 0);
+		address2        : in  	integer range 0 to 255;
+		dataout2		: OUT	STD_LOGIC_VECTOR(WORDSIZE-1 DOWNTO 0)
+	);
+END COMPONENT ;
+
+END MemLogica_package ;

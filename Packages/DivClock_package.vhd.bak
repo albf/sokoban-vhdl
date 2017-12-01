@@ -1,0 +1,11 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+
+PACKAGE DivClock_package IS
+
+COMPONENT DivClock
+PORT ( 			Clock : IN STD_LOGIC ;	
+				Q : OUT STD_LOGIC) ;	
+END COMPONENT ;
+
+END DivClock_package ;

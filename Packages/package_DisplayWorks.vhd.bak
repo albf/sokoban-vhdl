@@ -1,0 +1,26 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+
+PACKAGE package_DisplayWorks IS
+
+COMPONENT ReadMemory
+	GENERIC (
+		WORDSIZE		: NATURAL	:= 4;
+		BITS_OF_ADDR	: NATURAL	:= 2;			
+		MIF_FILE		: STRING	:= "time.mif"	
+	);
+	PORT (
+		clock   		: IN	STD_LOGIC;
+		address 		: IN	STD_LOGIC_VECTOR(BITS_OF_ADDR-1 DOWNTO 0);
+		dataout 		: OUT	STD_LOGIC_VECTOR(WORDSIZE-1 DOWNTO 0)
+	);
+END COMPONENT ;
+
+COMPONENT TimerExpand
+	PORT (
+		Entrada			: IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+		Saida			: OUT STD_LOGIC_VECTOR (12 DOWNTO 0)
+	);
+END COMPONENT ;
+
+END package_DisplayWorks ;
