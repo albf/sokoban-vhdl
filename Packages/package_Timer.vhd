@@ -1,3 +1,11 @@
+-----------------------------------------------------------------------------------
+--	Alexandre Luiz Brisighello Filho 	- alexandre.brisighello@gmail.com		 --
+--	Andre Nakagaki Filliettaz			- andrentaz@gmail.com					 --
+--																				 --
+--	Project: sokoban-altera														 --
+--	file: package_Timer.vhd														 --
+-----------------------------------------------------------------------------------
+
 LIBRARY ieee ;
 USE ieee.std_logic_1164.all ;
 
@@ -11,7 +19,7 @@ GENERIC (
 		Inicial_stage4		: STD_LOGIC_VECTOR(3 DOWNTO 0)	:= "0011"
 	);
 	PORT ( 	Clock 		: IN STD_LOGIC ;
-		Clear			: IN STD_LOGIC ;	
+		Clear			: IN STD_LOGIC ;
 		Mode			: IN STD_LOGIC;	-- 0 conta, 1 para!
 		Enable			: IN STD_LOGIC;
 		Q				: OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
@@ -20,9 +28,9 @@ GENERIC (
 END COMPONENT ;
 
 COMPONENT DivClock
-PORT ( 			Clock : IN STD_LOGIC ;	
+PORT ( 			Clock : IN STD_LOGIC ;
 				Clear : IN STD_LOGIC;
-				Q : OUT STD_LOGIC) ;	
+				Q : OUT STD_LOGIC) ;
 END COMPONENT ;
 
 

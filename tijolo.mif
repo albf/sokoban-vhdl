@@ -1,10 +1,10 @@
-WIDTH=3;	--  3bits de cor
+WIDTH=3;	--  3bits for color
 DEPTH=8192;	--  2^13 = 8192
 
 ADDRESS_RADIX=UNS;
 DATA_RADIX=BIN;
 
--- 15x15 representação do tijolo em bitmap
+-- 15x15 brick representation in bitmap
 
 CONTENT BEGIN
 

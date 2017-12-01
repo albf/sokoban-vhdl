@@ -1,12 +1,11 @@
 -----------------------------------------------------------------------------------
---	Alexandre Luiz Brisighello Filho 	- RA:101350								 --
---	Andre Nakagaki Filliettaz			- RA:104595								 --
+--	Alexandre Luiz Brisighello Filho 	- alexandre.brisighello@gmail.com		 --
+--	Andre Nakagaki Filliettaz			- andrentaz@gmail.com					 --
 --																				 --
---	MC613 - Projeto final : Sokoban												 --
---	Arquivo : TimeExpand.vhdl													 --
---	Descrição : Trata-se de um multiplicador por x*bitmap^2 para valores entre   --
---	10 e 19. Usado para converter as entradas de tempo para as representações de --
---  bitmap.																		 --
+--	Project: sokoban-altera														 --
+--	file: TimerExpand.vhd														 --
+--	description: Multipler module, that calculates x*bitmap^2 by values between	 --
+--  10 and 19. Used to convert time entries to the bitmap representations.		 --
 -----------------------------------------------------------------------------------
 
 LIBRARY IEEE;

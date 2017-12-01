@@ -1,3 +1,11 @@
+-----------------------------------------------------------------------------------
+--	Alexandre Luiz Brisighello Filho 	- alexandre.brisighello@gmail.com		 --
+--	Andre Nakagaki Filliettaz			- andrentaz@gmail.com					 --
+--																				 --
+--	Project: sokoban-altera														 --
+--	file: package_KB_Handler.vhd												 --
+-----------------------------------------------------------------------------------
+
 LIBRARY ieee ;
 USE ieee.std_logic_1164.all ;
 

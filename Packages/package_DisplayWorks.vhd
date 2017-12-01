@@ -1,3 +1,11 @@
+-----------------------------------------------------------------------------------
+--	Alexandre Luiz Brisighello Filho 	- alexandre.brisighello@gmail.com		 --
+--	Andre Nakagaki Filliettaz			- andrentaz@gmail.com					 --
+--																				 --
+--	Project: sokoban-altera														 --
+--	file: package_DisplayWorks.vhd												 --
+-----------------------------------------------------------------------------------
+
 LIBRARY ieee ;
 USE ieee.std_logic_1164.all ;
 
@@ -6,8 +14,8 @@ PACKAGE package_DisplayWorks IS
 COMPONENT ReadMemory
 	GENERIC (
 		WORDSIZE		: NATURAL	:= 4;
-		BITS_OF_ADDR	: NATURAL	:= 2;			
-		MIF_FILE		: STRING	:= "time.mif"	
+		BITS_OF_ADDR	: NATURAL	:= 2;
+		MIF_FILE		: STRING	:= "time.mif"
 	);
 	PORT (
 		clock   		: IN	STD_LOGIC;

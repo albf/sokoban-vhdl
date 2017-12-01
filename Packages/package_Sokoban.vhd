@@ -1,3 +1,11 @@
+-----------------------------------------------------------------------------------
+--	Alexandre Luiz Brisighello Filho 	- alexandre.brisighello@gmail.com		 --
+--	Andre Nakagaki Filliettaz			- andrentaz@gmail.com					 --
+--																				 --
+--	Project: sokoban-altera														 --
+--	file: package_Sokoban.vhd													 --
+-----------------------------------------------------------------------------------
+
 LIBRARY ieee ;
 USE ieee.std_logic_1164.all ;
 
@@ -10,14 +18,14 @@ COMPONENT DisplayWorks
 		reset				: IN STD_LOGIC;
 		red, green, blue 	: OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
 		hsync, vsync		: OUT STD_LOGIC;
-		
+
 		-- Recebe sinais do timer
 		Unidade_IN			: IN STD_LOGIC_VECTOR (3 DOWNTO 0);
-		Dezena_IN			: IN STD_LOGIC_VECTOR (3 DOWNTO 0); 	
+		Dezena_IN			: IN STD_LOGIC_VECTOR (3 DOWNTO 0);
 		Centena_IN			: IN STD_LOGIC_VECTOR (3 DOWNTO 0);
-		
-		-- Recebe Sinais da Memória Lógica
-			-- Mapa lógico
+
+		-- Recebe Sinais da Memï¿½ria Lï¿½gica
+			-- Mapa lï¿½gico
 		Vid_address		: OUT integer range 0 to 255;
 		Vid_data		: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 		MUX_SIGNAL		: IN STD_LOGIC_VECTOR(1 DOWNTO 0)
@@ -28,7 +36,7 @@ COMPONENT KB_Handler
 	PORT
 		(
 			------------------------	Clock Input	 	------------------------
-			CLOCK_27: 	IN		STD_LOGIC_VECTOR (1 downto 0);		--	24 MHz			
+			CLOCK_27: 	IN		STD_LOGIC_VECTOR (1 downto 0);		--	24 MHz
 
 			------------------------	Push Button		------------------------
 			resetn	:	IN		STD_LOGIC;
@@ -48,7 +56,7 @@ COMPONENT MemLogica
 GENERIC (
 		WORDSIZE		: NATURAL	:= 3;
 		BITS_OF_ADDR	: NATURAL	:= 8;			-- 8 bits, labirinto tem 18x13, totalizando 1110 1010
-		MIF_FILE		: STRING	:= "stage.mif"	
+		MIF_FILE		: STRING	:= "stage.mif"
 	);
 	PORT (
 		clock   		: IN	STD_LOGIC;
@@ -63,42 +71,42 @@ END COMPONENT ;
 
 COMPONENT MemLogica_Mux
 	PORT (
-Log_Mem_Enable				: OUT STD_LOGIC;						
+Log_Mem_Enable				: OUT STD_LOGIC;
 Log_Mem_Adress				: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 Log_Mem_DataIn				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 Log_Mem_DataOut				: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-Vid_Mem_Adress				: OUT integer range 0 to 255; 	
-Vid_Mem_DataOut				: IN STD_LOGIC_VECTOR(2 DOWNTO 0);  
+Vid_Mem_Adress				: OUT integer range 0 to 255;
+Vid_Mem_DataOut				: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 
-Log_Mem_Enable2				: OUT STD_LOGIC;						
+Log_Mem_Enable2				: OUT STD_LOGIC;
 Log_Mem_Adress2				: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 Log_Mem_DataIn2				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 Log_Mem_DataOut2			: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-Vid_Mem_Adress2				: OUT integer range 0 to 255; 	
-Vid_Mem_DataOut2			: IN STD_LOGIC_VECTOR(2 DOWNTO 0);  
+Vid_Mem_Adress2				: OUT integer range 0 to 255;
+Vid_Mem_DataOut2			: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 
-Log_Mem_Enable3				: OUT STD_LOGIC;						
+Log_Mem_Enable3				: OUT STD_LOGIC;
 Log_Mem_Adress3				: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 Log_Mem_DataIn3				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 Log_Mem_DataOut3			: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-Vid_Mem_Adress3				: OUT integer range 0 to 255; 	
-Vid_Mem_DataOut3			: IN STD_LOGIC_VECTOR(2 DOWNTO 0);  
+Vid_Mem_Adress3				: OUT integer range 0 to 255;
+Vid_Mem_DataOut3			: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 
-Log_Mem_Enable4				: OUT STD_LOGIC;						
+Log_Mem_Enable4				: OUT STD_LOGIC;
 Log_Mem_Adress4				: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 Log_Mem_DataIn4				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 Log_Mem_DataOut4			: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-Vid_Mem_Adress4				: OUT integer range 0 to 255; 	
-Vid_Mem_DataOut4			: IN STD_LOGIC_VECTOR(2 DOWNTO 0); 
+Vid_Mem_Adress4				: OUT integer range 0 to 255;
+Vid_Mem_DataOut4			: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 
 Sinal_Mux					: IN STD_LOGIC_VECTOR(1 DOWNTO 0);
 
-Log_Mem_Enable_T			: IN STD_LOGIC;						
+Log_Mem_Enable_T			: IN STD_LOGIC;
 Log_Mem_Adress_T			: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 Log_Mem_DataIn_T			: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 Log_Mem_DataOut_T			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-Vid_Mem_Adress_T			: IN integer range 0 to 255; 	
-Vid_Mem_DataOut_T			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0) 
+Vid_Mem_Adress_T			: IN integer range 0 to 255;
+Vid_Mem_DataOut_T			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
 
 	);
 END COMPONENT ;
@@ -118,11 +126,11 @@ COMPONENT Timer
 		Dezena_Stage4		: STD_LOGIC_VECTOR(3 DOWNTO 0)  := "0010";
 		Unidade_Stage4		: STD_LOGIC_VECTOR(3 DOWNTO 0)	:= "0001"
 	);
-	PORT (		Clock		: 		IN STD_LOGIC; -- Clock 24mhz.		
-				Clear		: 		IN STD_LOGIC; -- Clear Assíncrono que inicia o timer
+	PORT (		Clock		: 		IN STD_LOGIC; -- Clock 24mhz.
+				Clear		: 		IN STD_LOGIC; -- Clear Assï¿½ncrono que inicia o timer
 				Fim			: 		OUT STD_LOGIC;
 				Unidade_OUT	:		OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
-				Dezena_OUT	:		OUT STD_LOGIC_VECTOR (3 DOWNTO 0); 	
+				Dezena_OUT	:		OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
 				Centena_OUT	:		OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
 				MUX			:		IN STD_LOGIC_VECTOR	(1 DOWNTO 0)
 );
@@ -146,20 +154,20 @@ COMPONENT Logica
 	PORT (
 	clock							: IN	STD_LOGIC;		-- clock
 	clear							: IN	STD_LOGIC;		-- vai para o estado inicial, de esperar comando
-	
-	Teclado_Ready					: IN	STD_LOGIC;		-- Avisa se há comandos para serem lidos no teclado. Se tiver, fica 1.
+
+	Teclado_Ready					: IN	STD_LOGIC;		-- Avisa se hï¿½ comandos para serem lidos no teclado. Se tiver, fica 1.
 	Teclado_Entry					: IN	STD_LOGIC_VECTOR (2 DOWNTO 0);		-- Passa o codigo do teclado
 	Teclado_Red						: OUT	STD_LOGIC;
-	
-	Mem_Enable_Out					: OUT	STD_LOGIC;		-- Enable da memória
-	Mem_Adress_Out					: OUT	STD_LOGIC_VECTOR(7 DOWNTO 0);		-- Endereço da memória
-	Mem_DataIn_Out					: OUT	STD_LOGIC_VECTOR(2 DOWNTO 0);		-- Dados da memória, entrada
-	Mem_DataOut						: IN	STD_LOGIC_VECTOR(2 DOWNTO 0);		-- Saida da memória
+
+	Mem_Enable_Out					: OUT	STD_LOGIC;		-- Enable da memï¿½ria
+	Mem_Adress_Out					: OUT	STD_LOGIC_VECTOR(7 DOWNTO 0);		-- Endereï¿½o da memï¿½ria
+	Mem_DataIn_Out					: OUT	STD_LOGIC_VECTOR(2 DOWNTO 0);		-- Dados da memï¿½ria, entrada
+	Mem_DataOut						: IN	STD_LOGIC_VECTOR(2 DOWNTO 0);		-- Saida da memï¿½ria
 
 	Alarm							: IN	STD_LOGIC;		-- Indica o fim do timer
 	Mux_Signal						: OUT	STD_LOGIC_VECTOR (1 DOWNTO 0);
 	Logic_Reset						: OUT 	STD_LOGIC;
-	
+
 	Boxes_Left						: OUT	STD_LOGIC_VECTOR (7 DOWNTO 0)
 	);
 END COMPONENT ;

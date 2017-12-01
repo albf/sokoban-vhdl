@@ -1,25 +1,23 @@
 -----------------------------------------------------------------------------------
---	Alexandre Luiz Brisighello Filho 	- RA:101350								 --
---	Andre Nakagaki Filliettaz			- RA:104595								 --
+--	Alexandre Luiz Brisighello Filho 	- alexandre.brisighello@gmail.com		 --
+--	Andre Nakagaki Filliettaz			- andrentaz@gmail.com					 --
 --																				 --
---	MC613 - Projeto final : Sokoban												 --
---	Arquivo : ReadMemory.vhdl													 --
---	Descrição : Trata-se de uma memória de leitura (read-only), que é utilizada  --
---	no projeto para guardar informação sobre os bitmaps.						 --
+--	Project: sokoban-altera														 --
+--	file: ReadMemory.vhd														 --
+--	description: Read-only memory, used to store bitmap information.			 --
 -----------------------------------------------------------------------------------
 
 LIBRARY IEEE;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
--- Memória simples, que permite apenas leitura.
--- Utilizada como banco de bitmap.
+-- Simple memory, just allows reading, used a bitmap bank
 
 ENTITY ReadMemory IS
 	GENERIC (
 		WORDSIZE		: NATURAL	:= 4;
-		BITS_OF_ADDR	: NATURAL	:= 2;			
-		MIF_FILE		: STRING	:= "time.mif"	
+		BITS_OF_ADDR	: NATURAL	:= 2;
+		MIF_FILE		: STRING	:= "time.mif"
 	);
 	PORT (
 		clock   		: IN	STD_LOGIC;
@@ -41,10 +39,10 @@ BEGIN
 	BEGIN
 		IF(clock'EVENT AND clock = '1')	THEN
 			read_a	<=	address;
-						
+
 		END IF	;
 	END PROCESS	;
-	
+
 	dataout			<=	Data(TO_INTEGER(UNSIGNED(read_a)))	;
-	
+
 END ARCHITECTURE RTL;

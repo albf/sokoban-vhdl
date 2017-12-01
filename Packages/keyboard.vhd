@@ -1,10 +1,18 @@
+-----------------------------------------------------------------------------------
+--	Alexandre Luiz Brisighello Filho 	- alexandre.brisighello@gmail.com		 --
+--	Andre Nakagaki Filliettaz			- andrentaz@gmail.com					 --
+--																				 --
+--	Project: sokoban-altera														 --
+--	file: keyboard.vhd															 --
+-----------------------------------------------------------------------------------
+
 LIBRARY IEEE;
 USE  IEEE.STD_LOGIC_1164.all;
 USE  IEEE.STD_LOGIC_ARITH.all;
 USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
 ENTITY keyboard IS
-	PORT(	keyboard_clk, keyboard_data, clock_25Mhz , 
+	PORT(	keyboard_clk, keyboard_data, clock_25Mhz ,
 			reset, read		: IN	STD_LOGIC;
 			scan_code		: OUT	STD_LOGIC_VECTOR(7 DOWNTO 0);
 			scan_ready		: OUT	STD_LOGIC);
